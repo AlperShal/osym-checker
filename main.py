@@ -80,4 +80,4 @@ for resultID in possibleResultIDs:
             server.login(smtp_sender, smtp_password)
             server.sendmail(smtp_sender, mail_receiver, msg=msg.as_string())
             print(f"Sent the result to {mail_receiver}!")
-        print(f"While not being 100% sure, looks like results for {resultID} is announced. You can check your email or {resultID}_{tckn}.html file. I suggest you to check your email as it will be properly formatted as HTML.")
+        print(f"While not being 100% sure, looks like results for {resultID} is announced. You can check your email or {resultID}_{tckn}.html file. I suggest you to check your email as it will be properly rendered as HTML.")
