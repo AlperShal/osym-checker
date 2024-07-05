@@ -1,4 +1,5 @@
 # Libraries
+import os
 import requests
 from requests import adapters
 from urllib3 import poolmanager
@@ -10,6 +11,24 @@ from email.utils import formatdate
 from email.mime.text import MIMEText
 
 # Variables
+try: 
+    if os.environ["TCKN"] != "":
+        tckn = int(os.environ["TCKN"])
+    if os.environ["AIS_PASSWORD"] != "":
+        ais_password = os.environ["AIS_PASSWORD"]
+    if os.environ["SMTP_SERVER"] != "":
+        smtp_server = os.environ["SMTP_SERVER"] 
+    if os.environ["SMTP_PORT"] != "":
+        smtp_port = int(os.environ["SMTP_PORT"])
+    if os.environ["SMTP_SENDER"] != "":
+        smtp_sender = os.environ["SMTP_SENDER"]
+    if os.environ["SMTP_PASSWORD"] != "":
+        smtp_password = os.environ["SMTP_PASSWORD"]
+    if os.environ["MAIL_RECEIVER"] != "":
+        mail_receiver = os.environ["MAIL_RECEIVER"]
+except KeyError:
+    print("One or more variables are missing. Using the credentials in the main.py file.")
+    
 announcedExamsURL: str = "https://sonuc.osym.gov.tr/"
 resultPageURL: str = "https://sonuc.osym.gov.tr/Sorgu.aspx"
 
@@ -18,9 +37,14 @@ ais_password: str = "hunter2" # Plaintext
 
 smtp_server = "mail.example.com"
 smtp_port = 587  # For TLS (STARTTLS)
-smtp_sender = "AlperShal@example.com"
-smtp_password = "hunter2"
-mail_receiver = "AlperShal@example.com"
+# tckn: int = 11111111111 # T.C. ID
+# ais_password: str = "hunter2" # Plaintext 
+
+# smtp_server = "mail.example.com"
+# smtp_port = 587  # For TLS (STARTTLS)
+# smtp_sender = "AlperShal@example.com"
+# smtp_password = "hunter2"
+# mail_receiver = "AlperShal@example.com"
 
 
 # Magic

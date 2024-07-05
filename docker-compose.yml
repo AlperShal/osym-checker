@@ -1,0 +1,15 @@
+services:
+  app:
+    image: osym-checker
+    container_name: osym-checker
+    volumes:
+      - ./last_checked_exam.txt:/app/last_checked_exam.txt
+      - ./results:/app/results
+    environment:
+      - TCKN=11111111111
+      - AIS_PASSWORD=hunter2
+      - SMTP_SERVER=mail.example.com
+      - SMTP_PORT=587
+      - SMTP_SENDER=AlperShal@example.com
+      - SMTP_PASSWORD=hunter2
+      - MAIL_RECEIVER=AlperShal@example.com
