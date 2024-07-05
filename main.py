@@ -68,8 +68,7 @@ html = ssl_supressed_session().get(url=announcedExamsURL, verify=False).text
 
 soup = BeautifulSoup(html, 'html.parser')
 lastAnnouncedExamElement = soup.find("a")
-lastAnnouncedExamID = "9842"
-# lastAnnouncedExamID = lastAnnouncedExamElement["href"].split("=")[1]  # type: ignore
+lastAnnouncedExamID = lastAnnouncedExamElement["href"].split("=")[1]  # type: ignore
 lastAnnouncedExamName = lastAnnouncedExamElement.contents # type: ignore
 
 with open("last_checked_exam.txt", "r") as file:
