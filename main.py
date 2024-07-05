@@ -37,14 +37,9 @@ ais_password: str = "hunter2" # Plaintext
 
 smtp_server = "mail.example.com"
 smtp_port = 587  # For TLS (STARTTLS)
-# tckn: int = 11111111111 # T.C. ID
-# ais_password: str = "hunter2" # Plaintext 
-
-# smtp_server = "mail.example.com"
-# smtp_port = 587  # For TLS (STARTTLS)
-# smtp_sender = "AlperShal@example.com"
-# smtp_password = "hunter2"
-# mail_receiver = "AlperShal@example.com"
+smtp_sender = "AlperShal@example.com"
+smtp_password = "hunter2"
+mail_receiver = "AlperShal@example.com"
 
 
 # Magic
