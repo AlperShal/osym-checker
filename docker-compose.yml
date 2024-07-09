@@ -1,6 +1,6 @@
 services:
   app:
-    image: osym-checker
+    build: .
     container_name: osym-checker
     volumes:
       - ./last_checked_exam.txt:/app/last_checked_exam.txt
