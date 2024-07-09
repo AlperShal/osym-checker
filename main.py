@@ -11,6 +11,9 @@ from email.utils import formatdate
 from email.mime.text import MIMEText
 
 # Variables
+announcedExamsURL: str = "https://sonuc.osym.gov.tr/"
+resultPageURL: str = "https://sonuc.osym.gov.tr/Sorgu.aspx"
+
 try: 
     if os.environ["TCKN"] != "":
         tckn = int(os.environ["TCKN"])
@@ -27,19 +30,15 @@ try:
     if os.environ["MAIL_RECEIVER"] != "":
         mail_receiver = os.environ["MAIL_RECEIVER"]
 except KeyError:
-    print("One or more variables are missing. Using the credentials in the main.py file.")
-    
-announcedExamsURL: str = "https://sonuc.osym.gov.tr/"
-resultPageURL: str = "https://sonuc.osym.gov.tr/Sorgu.aspx"
+    print("One or more environment variables are missing. Using the credentials in the main.py file.")
+    tckn: int = 11111111111 # T.C. ID
+    ais_password: str = "hunter2" # Plaintext 
 
-tckn: int = 11111111111 # T.C. ID
-ais_password: str = "hunter2" # Plaintext 
-
-smtp_server = "mail.example.com"
-smtp_port = 587  # For TLS (STARTTLS)
-smtp_sender = "AlperShal@example.com"
-smtp_password = "hunter2"
-mail_receiver = "AlperShal@example.com"
+    smtp_server = "mail.example.com"
+    smtp_port = 587  # For TLS (STARTTLS)
+    smtp_sender = "AlperShal@example.com"
+    smtp_password = "hunter2"
+    mail_receiver = "AlperShal@example.com"
 
 
 # Magic
