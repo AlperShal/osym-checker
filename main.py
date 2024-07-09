@@ -15,20 +15,13 @@ announcedExamsURL: str = "https://sonuc.osym.gov.tr/"
 resultPageURL: str = "https://sonuc.osym.gov.tr/Sorgu.aspx"
 
 try: 
-    if os.environ["TCKN"] != "":
-        tckn = int(os.environ["TCKN"])
-    if os.environ["AIS_PASSWORD"] != "":
-        ais_password = os.environ["AIS_PASSWORD"]
-    if os.environ["SMTP_SERVER"] != "":
-        smtp_server = os.environ["SMTP_SERVER"] 
-    if os.environ["SMTP_PORT"] != "":
-        smtp_port = int(os.environ["SMTP_PORT"])
-    if os.environ["SMTP_SENDER"] != "":
-        smtp_sender = os.environ["SMTP_SENDER"]
-    if os.environ["SMTP_PASSWORD"] != "":
-        smtp_password = os.environ["SMTP_PASSWORD"]
-    if os.environ["MAIL_RECEIVER"] != "":
-        mail_receiver = os.environ["MAIL_RECEIVER"]
+    tckn = int(os.environ["TCKN"])
+    ais_password = os.environ["AIS_PASSWORD"]
+    smtp_server = os.environ["SMTP_SERVER"] 
+    smtp_port = int(os.environ["SMTP_PORT"])
+    smtp_sender = os.environ["SMTP_SENDER"]
+    smtp_password = os.environ["SMTP_PASSWORD"]
+    mail_receiver = os.environ["MAIL_RECEIVER"]
 except KeyError:
     print("One or more environment variables are missing. Using the credentials in the main.py file.")
     tckn: int = 11111111111 # T.C. ID
