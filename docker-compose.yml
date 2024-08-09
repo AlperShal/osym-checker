@@ -3,7 +3,7 @@ services:
     build: .
     container_name: osym-checker
     volumes:
-      - ./last_checked_exam.txt:/app/last_checked_exam.txt
+      - ./last_checked_result.txt:/app/last_checked_result.txt
       - ./results:/app/results
     environment:
       - TCKN=11111111111
