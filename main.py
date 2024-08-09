@@ -13,6 +13,7 @@ from email.mime.text import MIMEText
 # Variables
 announcedResultsURL: str = "https://sonuc.osym.gov.tr/"
 resultPageURL: str = "https://sonuc.osym.gov.tr/Sorgu.aspx"
+lastCheckedFilePath: str = "results/lastChecked.txt"
 
 try: 
     tckn = int(os.environ["TCKN"])
@@ -82,17 +83,17 @@ lastAnnouncedResultElement = soup.find("a")
 lastAnnouncedResultID = lastAnnouncedResultElement["href"].split("=")[1]  # type: ignore
 lastAnnouncedResultName = lastAnnouncedResultElement.contents[0] # type: ignore
 
-with open("results/last_checked_result.txt", "r") as file:
+with open(lastCheckedFilePath, "r") as file:
     lastSavedResultID = file.read()
 
 if lastSavedResultID == "":
     print("Looks like you are running this script for the first time. Saving the last announced ID and not running a result check.")
-    with open("results/last_checked_result.txt", "w") as file:
+    with open(lastCheckedFilePath, "w") as file:
         file.write(lastAnnouncedResultID)
 elif lastSavedResultID == lastAnnouncedResultID:
     print("No new announcement. No action is being taken.")
 else:
-    with open("results/last_checked_result.txt", "w") as file:
+    with open(lastCheckedFilePath, "w") as file:
         file.write(lastAnnouncedResultID)
     print("New announcement. Running a result check.")
     params = {"SonucID": lastAnnouncedResultID, "Cache": "0"}
