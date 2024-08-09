@@ -80,7 +80,7 @@ html = ssl_supressed_session().get(url=announcedResultsURL, verify=False).text
 soup = BeautifulSoup(html, 'html.parser')
 lastAnnouncedResultElement = soup.find("a")
 lastAnnouncedResultID = lastAnnouncedResultElement["href"].split("=")[1]  # type: ignore
-lastAnnouncedResultName = lastAnnouncedResultElement.contents # type: ignore
+lastAnnouncedResultName = lastAnnouncedResultElement.contents[0] # type: ignore
 
 with open("results/last_checked_result.txt", "r") as file:
     lastSavedResultID = file.read()
