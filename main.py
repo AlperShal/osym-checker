@@ -82,17 +82,17 @@ lastAnnouncedResultElement = soup.find("a")
 lastAnnouncedResultID = lastAnnouncedResultElement["href"].split("=")[1]  # type: ignore
 lastAnnouncedResultName = lastAnnouncedResultElement.contents # type: ignore
 
-with open("last_checked_result.txt", "r") as file:
+with open("results/last_checked_result.txt", "r") as file:
     lastSavedResultID = file.read()
 
 if lastSavedResultID == "":
     print("Looks like you are running this script for the first time. Saving the last announced ID and not running a result check.")
-    with open("last_checked_result.txt", "w") as file:
+    with open("results/last_checked_result.txt", "w") as file:
         file.write(lastAnnouncedResultID)
 elif lastSavedResultID == lastAnnouncedResultID:
     print("No new announcement. No action is being taken.")
 else:
-    with open("last_checked_result.txt", "w") as file:
+    with open("results/last_checked_result.txt", "w") as file:
         file.write(lastAnnouncedResultID)
     print("New announcement. Running a result check.")
     params = {"SonucID": lastAnnouncedResultID, "Cache": "0"}
